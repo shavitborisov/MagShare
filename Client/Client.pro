@@ -1,15 +1,17 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Client
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++11
+CONFIG += c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    msp.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    msp.h
 
 FORMS    += mainwindow.ui

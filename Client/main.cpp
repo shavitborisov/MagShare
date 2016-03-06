@@ -3,14 +3,16 @@
 #include <QtCore>
 #include <QtGui>
 #include <QMessageBox>
+#include "msp.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+//    MainWindow w;
+//    w.show();
 
-    QMessageBox::information(nullptr, "Window", "Text");
+    MSP msp;
+    msp.connect();
 
     return a.exec();
 }
