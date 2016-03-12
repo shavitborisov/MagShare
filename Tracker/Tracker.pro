@@ -10,7 +10,9 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    msp.cpp
+    server.cpp \
+    serverthread.cpp
 
 HEADERS += \
-    msp.h
+    server.h \
+    serverthread.h

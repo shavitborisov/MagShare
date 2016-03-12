@@ -8,10 +8,8 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    msp.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    msp.h
+HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui

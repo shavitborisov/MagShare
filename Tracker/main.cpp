@@ -1,11 +1,14 @@
 #include <QCoreApplication>
-#include "msp.h"
+#include "server.h"
 
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    MSP server;
-    server.listen();
+    Server server;
+    if (!server.listen(QHostAddress::Any, 1337)) {
+        qDebug() << "error listening";
+        return -1;
+    }
 
     return a.exec();
 }
