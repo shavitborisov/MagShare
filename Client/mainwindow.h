@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTcpSocket>
+#include "torrentclient.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,20 +16,53 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void connectToTracker();
-
-public slots:
-    void connected();
-    void disconnected();
-    void bytesWritten(qint64 bytes);
-    void readyRead();
+    void torrentStart();
+    void torrentStop();
 
 private slots:
-    void on_sendCmd_clicked();
+
+    // menus
+    void on_actionAbout_triggered();
+    void on_actionExit_triggered();
+    void on_actionSettings_triggered();
+    void on_actionAdd_MagFile_triggered();
+    void on_actionCreate_MagFile_triggered();
+
+    // buttons
+    void on_pushStart_clicked();
+    void on_pushStop_clicked();
+
+    // torrent
+    bool addTorrent(const QString &fileName, const QString &destinationFolder,
+                    const QByteArray &resumeState = QByteArray());
+    void removeTorrent();
+    void torrentError(TorrentClient::Error error);
+    void torrentStopped();
+
+    void updateState(TorrentClient::State state);
+    void updatePeerInfo();
+    void updateProgress(int percent);
+    void updateDownloadRate(int bytesPerSecond);
+    void updateUploadRate(int bytesPerSecond);
 
 private:
     Ui::MainWindow *ui;
-    QTcpSocket* socket;
+
+    int rowOfClient(TorrentClient *client) const;
+    int uploadLimit;
+    int downloadLimit;
+    struct Job {
+        TorrentClient *client;
+        QString torrentFileName;
+        QString destinationDirectory;
+    };
+
+    QList<Job> jobs;
+    int jobsStopped;
+    int jobsToStop;
+
+    QString lastDirectory;
+
 };
 
 #endif // MAINWINDOW_H

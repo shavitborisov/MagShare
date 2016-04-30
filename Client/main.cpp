@@ -2,17 +2,15 @@
 #include <QApplication>
 #include <QtCore>
 #include <QtGui>
-#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
+    QApplication app(argc, argv);
+    QApplication::setOrganizationName("MagShare Corp.");
+    QApplication::setApplicationName("MagShare");
 
+    MainWindow w;
     w.show();
 
-
-    w.connectToTracker();
-
-    return a.exec();
+    return app.exec();
 }
