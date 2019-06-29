@@ -1,4 +1,4 @@
-# MaSshare ![GitHub last commit](https://img.shields.io/github/last-commit/shavitborisov/Magshare.svg)
+# MagShare ![GitHub last commit](https://img.shields.io/github/last-commit/shavitborisov/Magshare.svg)
 MagShare is a secured, Peer2Peer file-sharing tool.
 This tool was developed as a final project for _Magshimim_ in 2016.
 ## Installation
