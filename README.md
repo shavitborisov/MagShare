@@ -6,4 +6,4 @@ All relevant information can be found under _Documentation_ (Hebrew).
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 ## License
-[Unlicense](https://choosealicense.com/licenses/unlicense/)
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
